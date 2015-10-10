@@ -1,0 +1,2 @@
+class BillStatement
+end

@@ -1,0 +1,2 @@
+class BillTotal
+end
