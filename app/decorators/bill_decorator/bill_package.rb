@@ -1,2 +1,0 @@
-class BillPackage
-end
