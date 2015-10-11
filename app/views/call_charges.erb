@@ -1,0 +1,6 @@
+<% call_charges.calls.each do |call| %>
+  Called: <%= call.called %><br/>
+  Duration: <%= call.duration %><br/>
+  Cost: <%= call.cost %><br/><br/>
+<% end %>
+Call Charge Total: <%= call_charges.total %><br/>

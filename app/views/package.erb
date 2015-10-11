@@ -1,0 +1,6 @@
+<% package.subscriptions.each do |subscription| %>
+  Type: <%= subscription.type %><br/>
+  Name: <%= subscription.name %><br/>
+  Cost: <%= subscription.cost %><br/><br/>
+<% end %>
+Package Total: <%= package.total %><br/>

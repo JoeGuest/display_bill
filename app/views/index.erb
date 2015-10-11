@@ -1,11 +1,5 @@
-<!DOCTYPE html>
-<html>
-<head>
-</head>
-<body>
-<h2>Sky Bill Details</h2>
-<div>
-  <%= bill %>
-</div>
-</body>
-</html>
+Statement:<br/><%= erb :statement, locals: { statement: bill.statement } %><br/>
+Package:<br/><%= erb :package, locals: { package: bill.package } %><br/>
+Call Charges:<br/><%= erb :call_charges, locals: { call_charges: bill.call_charges } %><br/>
+Sky Store:<br/><%= erb :sky_store, locals: { sky_store: bill.sky_store } %><br/>
+Total: <%= bill.total %>

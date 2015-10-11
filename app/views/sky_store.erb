@@ -1,0 +1,9 @@
+Rentals: <% sky_store.rentals.each do |rental| %>
+  Title: <%= rental.title %><br/>
+  Cost: <%= rental.cost %><br/><br/>
+<% end %>
+Buy And Keep: <% sky_store.buy_and_keep.each do |purchase| %>
+  Title: <%= purchase.title %><br/>
+  Cost: <%= purchase.cost %><br/><br/>
+<% end %>
+Total: <%= sky_store.total %><br/>
