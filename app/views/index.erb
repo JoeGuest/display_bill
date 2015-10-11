@@ -1,5 +1,15 @@
-Statement:<br/><%= erb :statement, locals: { statement: bill.statement } %><br/>
-Package:<br/><%= erb :package, locals: { package: bill.package } %><br/>
-Call Charges:<br/><%= erb :call_charges, locals: { call_charges: bill.call_charges } %><br/>
-Sky Store:<br/><%= erb :sky_store, locals: { sky_store: bill.sky_store } %><br/>
-Total: <%= bill.total %>
+<h2>Sky Bill Details</h2>
+
+<h3>Statement:</h3>
+<%= erb :statement, locals: { statement: bill.statement } %>
+
+<h3>Package:</h3>
+<%= erb :package, locals: { package: bill.package } %>
+
+<h3>Call Charges:</h3>
+<%= erb :call_charges, locals: { call_charges: bill.call_charges } %>
+
+<h3>Sky Store:</h3>
+<%= erb :sky_store, locals: { sky_store: bill.sky_store } %>
+
+<h3>Total: <%= bill.total %></h3>

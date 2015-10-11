@@ -1,9 +1,25 @@
-Rentals: <% sky_store.rentals.each do |rental| %>
-  Title: <%= rental.title %><br/>
-  Cost: <%= rental.cost %><br/><br/>
-<% end %>
-Buy And Keep: <% sky_store.buy_and_keep.each do |purchase| %>
-  Title: <%= purchase.title %><br/>
-  Cost: <%= purchase.cost %><br/><br/>
-<% end %>
+<h4>Rentals:</h4>
+<table>
+  <th>Title</th>
+  <th>Cost</th>
+  <% sky_store.rentals.each do |rental| %>
+    <tr>
+      <td><%= rental.title %></td>
+      <td><%= rental.cost %></td>
+    </tr>
+  <% end %>
+</table>
+
+<h4>Buy And Keep:</h4>
+<table>
+  <th>Title</th>
+  <th>Cost</th>
+  <% sky_store.buy_and_keep.each do |purchase| %>
+    <tr>
+      <td><%= purchase.title %></td>
+      <td><%= purchase.cost %></td>
+    </tr>
+  <% end %>
+</table><br/>
+
 Total: <%= sky_store.total %><br/>
