@@ -1,4 +1,25 @@
-Generated: <%= statement.generated %><br/>
-Due: <%= statement.due %><br/>
-Period From: <%= statement.period.from %><br/>
-Period To: <%= statement.period.to %><br/>
+<div class="table-responsive">
+  <table class="table table-condensed">
+    <thead>
+      <h3>Statement Details</h3>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Generated</td>
+        <td><%= statement.generated %></td>
+      </tr>
+      <tr>
+        <td>Due</td>
+        <td><%= statement.due %></td>
+      </tr>
+      <tr>
+        <td>Period From</td>
+        <td><%= statement.period.from %></td>
+      </tr>
+      <tr>
+        <td>Period To</td>
+        <td><%= statement.period.to %></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

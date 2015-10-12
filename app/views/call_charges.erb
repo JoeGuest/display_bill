@@ -1,14 +1,28 @@
-<table>
-  <th>Called</th>
-  <th>Duration</th>
-  <th>Cost</th>
-  <% call_charges.calls.each do |call| %>
-    <tr>
-      <td><%= call.called %><</td>
-      <td><%= call.duration %></td>
-      <td><%= call.cost %></td>
-    </tr>
-  <% end %>
-</table><br/>
-
-Call Charge Total: <%= call_charges.total %><br/>
+<div class="table-responsive">
+  <table class="table table-condensed table-striped">
+    <thead>
+      <h3>Call Charges</h3>
+      <tr>
+        <td>Called</td>
+        <td>Duration</td>
+        <td>Cost</td>
+      </tr>
+    </thead>
+    <tbody>
+      <% call_charges.calls.each do |call| %>
+        <tr>
+          <td><%= call.called %><</td>
+          <td><%= call.duration %></td>
+          <td><%= call.cost %></td>
+        </tr>
+      <% end %>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td></td>
+        <td>Total</td>
+        <td><%= call_charges.total %></td>
+      </tr>
+    </tfoot>
+  </table>
+</div>

@@ -1,25 +1,35 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <title>Skill Bill</title>
   <link href="/css/bootstrap.css" rel="stylesheet">
   <link href="/css/bootstrap-responsive.css" rel="stylesheet">
+  <link rel="stylesheet" href="http://web-toolkit.global.sky.com/components/core/0.0.4/styles/core.css" />
+  <script type="text/javascript" src="http://web-toolkit.global.sky.com/components/core/0.0.4/scripts/core.min.js"></script>
 </head>
 <body>
-  <h2>Sky Bill Details</h2>
-
-  <h3>Statement:</h3>
-  <%= erb :statement, locals: { statement: bill.statement } %>
-
-  <h3>Package:</h3>
-  <%= erb :package, locals: { package: bill.package } %>
-
-  <h3>Call Charges:</h3>
-  <%= erb :call_charges, locals: { call_charges: bill.call_charges } %>
-
-  <h3>Sky Store:</h3>
-  <%= erb :sky_store, locals: { sky_store: bill.sky_store } %>
-
-  <h3>Total: <%= bill.total %></h3>
+  <div class="container">
+    <div class="header clearfix">
+      <h1>Sky Bill</h1>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <%= erb :statement, locals: { statement: bill.statement } %>
+      </div>
+      <div class="col-sm-6">
+        <%= erb :package, locals: { package: bill.package } %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <%= erb :call_charges, locals: { call_charges: bill.call_charges } %>
+      </div>
+      <div class="col-sm-6">
+        <%= erb :sky_store, locals: { sky_store: bill.sky_store } %>
+      </div>
+    </div>
+    <h3>Total: <%= bill.total %></h3>
+  </div>
   <script src="/js/bootstrap.min.js" />
 </body>
 </html>

@@ -1,14 +1,28 @@
-<table>
-  <th>Type</th>
-  <th>Name</th>
-  <th>Cost</th>
-  <% package.subscriptions.each do |subscription| %>
-    <tr>
-      <td><%= subscription.type %></td>
-      <td><%= subscription.name %></td>
-      <td><%= subscription.cost %></td>
-    </tr>
-  <% end %>
-</table><br/>
-
-Package Total: <%= package.total %><br/>
+<div class="table-responsive">
+  <table class="table table-condensed">
+    <thead>
+      <h3>Package</h3>
+      <tr>
+        <td>Type</td>
+        <td>Name</td>
+        <td>Cost</td>
+      </tr>
+    </thead>
+    <tbody>
+      <% package.subscriptions.each do |subscription| %>
+        <tr>
+          <td><%= subscription.type %></td>
+          <td><%= subscription.name %></td>
+          <td><%= subscription.cost %></td>
+        </tr>
+      <% end %>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td></td>
+        <td>Total</td>
+        <td><%= package.total %></td>
+      </tr>
+    </tfoot>
+  </table>
+</div>

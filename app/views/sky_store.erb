@@ -1,25 +1,49 @@
-<h4>Rentals:</h4>
-<table>
-  <th>Title</th>
-  <th>Cost</th>
-  <% sky_store.rentals.each do |rental| %>
-    <tr>
-      <td><%= rental.title %></td>
-      <td><%= rental.cost %></td>
-    </tr>
-  <% end %>
-</table>
-
-<h4>Buy And Keep:</h4>
-<table>
-  <th>Title</th>
-  <th>Cost</th>
-  <% sky_store.buy_and_keep.each do |purchase| %>
-    <tr>
-      <td><%= purchase.title %></td>
-      <td><%= purchase.cost %></td>
-    </tr>
-  <% end %>
-</table><br/>
-
-Total: <%= sky_store.total %><br/>
+<h3>Sky Store</h3>
+<div class="col-sm-6">
+  <div class="table-responsive">
+    <table class="table table-condensed">
+      <thead>
+        <h4>Rentals</h4>
+        <tr>
+          <td>Title</td>
+          <td>Cost</td>
+        </tr>
+      </thead>
+      <tbody>
+        <% sky_store.rentals.each do |rental| %>
+          <tr>
+            <td><%= rental.title %></td>
+            <td><%= rental.cost %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="col-sm-6">
+  <div class="table-responsive">
+    <table class="table table-condensed">
+      <thead>
+        <h4>Buy And Keep</h4>
+        <tr>
+          <td>Title</td>
+          <td>Cost</td>
+        </tr>
+      </thead>
+      <tbody>
+        <% sky_store.buy_and_keep.each do |buy_and_keep| %>
+          <tr>
+            <td><%= buy_and_keep.title %></td>
+            <td><%= buy_and_keep.cost %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="col-sm-3 col-sm-offset-3">
+  Total
+</div>
+<div class="col-sm-3 col-sm-offset-3">
+  <%= sky_store.total %>
+</div>
