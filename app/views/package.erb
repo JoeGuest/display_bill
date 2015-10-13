@@ -13,7 +13,7 @@
         <tr>
           <td><%= subscription.type %></td>
           <td><%= subscription.name %></td>
-          <td><%= subscription.cost %></td>
+          <td>£<%= subscription.cost %></td>
         </tr>
       <% end %>
     </tbody>
@@ -21,7 +21,7 @@
       <tr>
         <td></td>
         <td>Total</td>
-        <td><%= package.total %></td>
+        <td>£<%= package.total %></td>
       </tr>
     </tfoot>
   </table>

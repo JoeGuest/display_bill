@@ -1,3 +1,5 @@
+require 'money'
+
 class SkyStoreDecorator
   def initialize(sky_store)
     @sky_store = sky_store
@@ -20,11 +22,15 @@ class SkyStoreDecorator
   end
 
   def total
-    sky_store['total']
+    money(sky_store['total'])
   end
 
   private
   attr_reader :sky_store
+
+  def money(number)
+    Money.new(number * 100, "GBP")
+  end
 
   def rentals_list
     sky_store['rentals']
@@ -34,7 +40,7 @@ class SkyStoreDecorator
     sky_store['buyAndKeep']
   end
 
-  class MediaItem
+  class MediaItem < SkyStoreDecorator
     def initialize(item)
       @item = item
     end
@@ -48,7 +54,7 @@ class SkyStoreDecorator
     end
 
     def cost
-      item['cost']
+      money(item['cost'])
     end
 
     private

@@ -14,17 +14,21 @@ class CallChargesDecorator
   end
 
   def total
-    call_charges['total']
+    money(call_charges['total'])
   end
 
   private
   attr_reader :call_charges
 
+  def money(number)
+    Money.new(number * 100, "GBP")
+  end
+
   def call_list
     call_charges['calls']
   end
 
-  class CallDecorator
+  class CallDecorator < CallChargesDecorator
     def initialize(call)
       @call = call
     end
@@ -42,7 +46,7 @@ class CallChargesDecorator
     end
 
     def cost
-      call['cost']
+      money(call['cost'])
     end
 
     private

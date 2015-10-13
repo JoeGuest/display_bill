@@ -32,7 +32,7 @@ describe BillDecorator do
 
   describe '#total' do
     it 'returns the total bill price' do
-      expect(decorator.total).to eql('100.00')
+      expect(decorator.total).to eql(Money.new(100, "GBP"))
     end
   end
 

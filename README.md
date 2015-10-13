@@ -12,4 +12,4 @@ As Sinatra was mentioned during the phone interview I thought it would be a good
 
 `API::Bill` consumes the JSON, before being decorated by the `BillDecorator` ready to be passed to the view.  Messages can be called on the objects in the view.
 
-TODO: Apply basic styling using Bootstrap, set conditionals on views if customer doesn't use certain products.
+Applied basic styling using Bootstrap, implemented the SkyTextRegular font via static resource.

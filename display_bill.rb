@@ -8,6 +8,8 @@ require './app/decorators/bill_decorator/statement_decorator'
 
 set :views, Proc.new { File.join(root, "app/views") }
 
+I18n.enforce_available_locales = false
+
 get '/' do
   erb :index, locals: { bill: decorated_bill }
 end

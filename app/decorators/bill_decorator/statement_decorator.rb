@@ -8,11 +8,11 @@ class StatementDecorator
   end
 
   def generated
-    statement['generated']
+    display_date(statement['generated'])
   end
 
   def due
-    statement['due']
+    display_date(statement['due'])
   end
 
   def period
@@ -22,11 +22,19 @@ class StatementDecorator
   private
   attr_reader :statement
 
+  def display_date(date)
+    parse_date(date).strftime("%d %b")
+  end
+
+  def parse_date(date)
+    DateTime.parse(date)
+  end
+
   def bill_period_details
     statement['period']
   end
 
-  class BillPeriod
+  class BillPeriod < StatementDecorator
     def initialize(bill_period)
       @bill_period = bill_period
     end
@@ -36,11 +44,11 @@ class StatementDecorator
     end
 
     def from
-      bill_period['from']
+      display_date(bill_period['from'])
     end
 
     def to
-      bill_period['to']
+      display_date(bill_period['to'])
     end
 
     private

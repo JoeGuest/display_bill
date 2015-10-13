@@ -19,16 +19,21 @@
       <div class="col-sm-6">
         <%= erb :package, locals: { package: bill.package } %>
       </div>
-    </div>
-    <div class="row">
       <div class="col-sm-6">
         <%= erb :call_charges, locals: { call_charges: bill.call_charges } %>
       </div>
       <div class="col-sm-6">
         <%= erb :sky_store, locals: { sky_store: bill.sky_store } %>
       </div>
+      <div class="col-sm-6">
+        <div class="col-sm-6">
+          <h3 style="float: right">Total</h3>
+        </div>
+        <div class="col-sm-6">
+          <h3 style="float: right">£<%= bill.total %></h3>
+        </div>
+      </div>
     </div>
-    <h3>Total: <%= bill.total %></h3>
   </div>
   <script src="/js/bootstrap.min.js" />
 </body>

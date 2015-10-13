@@ -5,7 +5,7 @@ describe PackageDecorator do
   let(:package) {
     {
       'subscriptions' => [subscription],
-      'total' => '100.00'
+      'total' => cost
     }
   }
   let(:subscription) {
@@ -15,6 +15,8 @@ describe PackageDecorator do
       'cost' => '1.23'
     }
   }
+  let(:money) { Money.new(cost, "GBP") }
+  let(:cost) { '1.23' }
 
   describe '#subscriptions' do
     let(:decorated_subscriptions) { decorator.subscriptions }
@@ -23,7 +25,7 @@ describe PackageDecorator do
       let(:decorated_subscription) { decorated_subscriptions.first }
 
       it 'returns its type' do
-        expect(decorated_subscription.type).to eql('tv')
+        expect(decorated_subscription.type).to eql('TV')
       end
 
       it 'returns its name' do
@@ -31,14 +33,16 @@ describe PackageDecorator do
       end
 
       it 'returns its cost' do
-        expect(decorated_subscription.cost).to eql('1.23')
+        expect(decorated_subscription.cost).to eql(money)
       end
     end
   end
 
   describe '#total' do
+    let(:cost) { '100.00' }
+
     it 'returns the total of all subscriptions' do
-      expect(decorator.total).to eql('100.00')
+      expect(decorator.total).to eql(money)
     end
   end
 end

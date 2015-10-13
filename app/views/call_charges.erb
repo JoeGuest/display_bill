@@ -11,9 +11,9 @@
     <tbody>
       <% call_charges.calls.each do |call| %>
         <tr>
-          <td><%= call.called %><</td>
+          <td><%= call.called %></td>
           <td><%= call.duration %></td>
-          <td><%= call.cost %></td>
+          <td>£<%= call.cost %></td>
         </tr>
       <% end %>
     </tbody>
@@ -21,7 +21,7 @@
       <tr>
         <td></td>
         <td>Total</td>
-        <td><%= call_charges.total %></td>
+        <td>£<%= call_charges.total %></td>
       </tr>
     </tfoot>
   </table>

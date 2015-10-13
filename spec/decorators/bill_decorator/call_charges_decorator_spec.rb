@@ -5,7 +5,7 @@ describe CallChargesDecorator do
   let(:call_charges) {
     {
       'calls' => [call],
-      'total' => '100.00'
+      'total' => cost
     }
   }
   let(:call) {
@@ -15,6 +15,8 @@ describe CallChargesDecorator do
       'cost' => '1.23'
     }
   }
+  let(:cost) { '1.23' }
+  let(:money) { Money.new(cost, "GBP") }
 
   describe '#calls' do
     let(:decorated_calls) { decorator.calls }
@@ -31,14 +33,16 @@ describe CallChargesDecorator do
       end
 
       it 'returns the cost' do
-        expect(decorated_call.cost).to eql('1.23')
+        expect(decorated_call.cost).to eql(money)
       end
     end
   end
 
   describe '#total' do
+    let(:cost) { '100.00' }
+
     it 'returns the total of all the calls' do
-      expect(decorator.total).to eql('100.00')
+      expect(decorator.total).to eql(money)
     end
   end
 end

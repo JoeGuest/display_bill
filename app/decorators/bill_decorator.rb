@@ -1,3 +1,5 @@
+require 'money'
+
 class BillDecorator
   def initialize(bill)
     @bill = bill
@@ -12,7 +14,7 @@ class BillDecorator
   end
 
   def total
-    bill['total']
+    money(bill['total'])
   end
 
   def package
@@ -28,6 +30,10 @@ class BillDecorator
   end
 
   private
+
+  def money(number)
+    Money.new(number * 100, "GBP")
+  end
 
   attr_reader :bill
 

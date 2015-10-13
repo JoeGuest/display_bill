@@ -17,22 +17,22 @@ describe StatementDecorator do
   }
 
   it 'returns when the bill was generated' do
-    expect(decorator.generated).to eql('2015-10-11')
+    expect(decorator.generated).to eql('11 Oct')
   end
 
   it 'returns when the bill is due' do
-    expect(decorator.due).to eql('2015-11-11')
+    expect(decorator.due).to eql('11 Nov')
   end
 
   describe '#period' do
     let(:bill_period) { decorator.period }
 
     it 'returns when the start date' do
-      expect(bill_period.from).to eql('2015-09-05')
+      expect(bill_period.from).to eql('05 Sep')
     end
 
     it 'returns when the end date' do
-      expect(bill_period.to).to eql('2015-10-05')
+      expect(bill_period.to).to eql('05 Oct')
     end
   end
 end

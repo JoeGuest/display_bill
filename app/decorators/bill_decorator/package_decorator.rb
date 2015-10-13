@@ -1,3 +1,5 @@
+require 'money'
+
 class PackageDecorator
   def initialize(package)
     @package = package
@@ -14,17 +16,21 @@ class PackageDecorator
   end
 
   def total
-    package['total']
+    money(package['total'])
   end
 
   private
   attr_reader :package
 
+  def money(number)
+    Money.new(number * 100, "GBP")
+  end
+
   def subscription_list
     package['subscriptions']
   end
 
-  class SubscriptionDecorator
+  class SubscriptionDecorator < PackageDecorator
     def initialize(subscription)
       @subscription = subscription
     end
@@ -34,7 +40,7 @@ class PackageDecorator
     end
 
     def type
-      subscription['type']
+      upcase_or_capitalize(subscription['type'])
     end
 
     def name
@@ -42,10 +48,14 @@ class PackageDecorator
     end
 
     def cost
-      subscription['cost']
+      money(subscription['cost'])
     end
 
     private
     attr_reader :subscription
+
+    def upcase_or_capitalize(string)
+      string == 'tv' ? string.upcase : string.capitalize
+    end
   end
 end

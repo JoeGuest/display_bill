@@ -13,7 +13,7 @@
         <% sky_store.rentals.each do |rental| %>
           <tr>
             <td><%= rental.title %></td>
-            <td><%= rental.cost %></td>
+            <td>£<%= rental.cost %></td>
           </tr>
         <% end %>
       </tbody>
@@ -34,16 +34,16 @@
         <% sky_store.buy_and_keep.each do |buy_and_keep| %>
           <tr>
             <td><%= buy_and_keep.title %></td>
-            <td><%= buy_and_keep.cost %></td>
+            <td>£<%= buy_and_keep.cost %></td>
           </tr>
         <% end %>
       </tbody>
     </table>
   </div>
 </div>
-<div class="col-sm-3 col-sm-offset-3">
-  Total
+<div class="col-sm-6">
+  <span style="float: right;">Total</span>
 </div>
-<div class="col-sm-3 col-sm-offset-3">
-  <%= sky_store.total %>
+<div class="col-sm-6">
+  <span style="float: right;">£<%= sky_store.total %></span>
 </div>
